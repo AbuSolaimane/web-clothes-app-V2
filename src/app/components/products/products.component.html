@@ -1,0 +1,2 @@
+<app-product-nav-bar (productEventEmitter)="onAction($event)" ></app-product-nav-bar>
+<app-product-list [products]="products" *ngIf="products.length !== 0" ></app-product-list>
