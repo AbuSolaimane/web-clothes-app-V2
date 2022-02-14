@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductEvent } from 'src/app/models/product-event.interface';
 import { Product } from 'src/app/models/product.model';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,21 +14,19 @@ export class ProductListComponent implements OnInit {
   @Input()
   products: Product[] = [];
 
-  constructor() { }
+  @Output()
+  productListEventEmitter: EventEmitter<ProductEvent> = new EventEmitter();
+
+  constructor(private productService: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSelect(product: Product) {
-    
-  }
-
-  onDelete(id: number) {
-
-  }
-
-  onEdit(id: number) {
-
+  onItemAction($event: ProductEvent) {
+    this.productListEventEmitter.emit({
+      type: $event.type
+    })
   }
   
 }

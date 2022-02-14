@@ -1,28 +1,28 @@
 {
   "products": [
     {
-      "name": "T-shirt",
-      "price": 50,
-      "quantity": 100,
-      "selected": false,
-      "available": true,
-      "id": 1
-    },
-    {
-      "id": 2,
       "name": "computer",
       "price": 10000,
-      "quantity": 200,
+      "quantity": "201",
       "selected": false,
-      "available": true
+      "available": true,
+      "id": 2
     },
     {
-      "name": "Acer",
-      "price": "10000",
-      "quantity": "400",
+      "name": "Bicycle",
+      "price": "500",
+      "quantity": "100",
       "selected": true,
       "available": true,
       "id": 3
+    },
+    {
+      "name": "Redmi",
+      "price": "1500",
+      "quantity": "300",
+      "selected": true,
+      "available": true,
+      "id": 4
     }
   ]
 }

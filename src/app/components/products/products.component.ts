@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAction($event: ProductEvent) {
+  onNavBarAction($event: ProductEvent) {
 
     let type = $event.type;
     let payload = $event.payload;
@@ -48,6 +48,17 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  onProductListAction($event: ProductEvent) {
+    let type = $event.type;
+    let payload = $event.payload;
+
+    switch (type) {
+      case ProductAction.GET_ALL_PRODUCTS:
+        this.getAllProducts();
+        break;
+    }
+  }
+
   getAllProducts() {
     this.productService.getAllProducts().subscribe(products => {
       this.products = products;
@@ -71,7 +82,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearch(value: any) {
-    this.productService.searchProducts(value.keyword).subscribe(data =>{
+    this.productService.searchProducts(value).subscribe(data =>{
       this.products = data
     }, err => {
       console.error(err);
